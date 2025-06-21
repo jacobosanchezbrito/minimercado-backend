@@ -6,6 +6,7 @@ const proveedorSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+            maxlength: 100,
         },
         correo: {
             type: String,
@@ -14,6 +15,7 @@ const proveedorSchema = new mongoose.Schema(
         telefono: {
             type: Number,
             required: true,
+            match: [/^\d{10}$/, 'Número de teléfono no válido'],
         },
         categoria: {
             type: String,
@@ -22,7 +24,7 @@ const proveedorSchema = new mongoose.Schema(
                 'Dulces', 'Farmacia', 'Carnes frias', 
                 'Lacteos', 'Alimentos refrigerados', 
                 'Aseo', 'Basica canasta familiar', 
-                'Mascostas', 'Varios/Otros'],
+                'Mascostas', 'Varios/Otros', 'Por definir'],
             default: 'Varios/Otros',
         },
         productos: [
