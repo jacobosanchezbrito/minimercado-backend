@@ -27,12 +27,6 @@ const proveedorSchema = new mongoose.Schema(
                 'Mascostas', 'Varios/Otros', 'Por definir'],
             default: 'Varios/Otros',
         },
-        productos: [
-            {
-              type: mongoose.Schema.Types.ObjectId,
-              ref: 'Producto',
-            }
-        ],
     },
     {
         timestamps: true,

@@ -9,6 +9,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
+import productoRoutes from './routes/productoRoutes.js';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -24,7 +25,8 @@ app.use(cors());
 app.use(express.json()); // para recibir JSON
 
 // Rutas (más adelante las cargamos aquí)
-// app.use("/api/usuarios", usuarioRoutes);
+app.use('/api/productos', productoRoutes);
+app.use('/api/proveedores', proveedorRoutes);
 
 // Ruta simple de prueba
 app.get("/", (req, res) => {
