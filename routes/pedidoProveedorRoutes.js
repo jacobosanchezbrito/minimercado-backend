@@ -18,4 +18,9 @@ router.route('/:id')
   .put(actualizarPedidoProveedor)
   .delete(eliminarPedidoProveedor);
 
+  // Rutas de filtros adicionales
+router.get('/proveedor/:id', obtenerPedidosPorProveedor);
+router.get('/responsable/:id', obtenerPedidosPorResponsable);
+router.get('/estado/:estado', obtenerPedidosPorEstado);
+
 export default router;

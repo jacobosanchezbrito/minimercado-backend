@@ -32,6 +32,49 @@ const obtenerPedidoProveedor = async (req, res) => {
   }
 };
 
+const obtenerPedidosPorProveedor = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const pedidos = await PedidoProveedor.find({ proveedor: id })
+      .populate('proveedor', 'nombre categoria') 
+    res.json(pedidos);
+  } catch (error) {
+    res.status(500).json({
+      mensaje: 'Error al obtener los pedidos del PROVEEDOR',
+      error,
+    });
+  }
+};
+
+const obtenerPedidosPorResponsable = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const pedidos = await PedidoProveedor.find({ responsable: id })
+      .populate('responsable', 'nombre correo'); 
+    res.json(pedidos);
+  } catch (error) {
+    res.status(500).json({
+      mensaje: 'Error al obtener los pedidos del proveedor por RESPONSABLE',
+      error,
+    });
+  }
+};
+
+const obtenerPedidosPorEstado = async (req, res) => {
+  try {
+    const { estado } = req.params;
+    const pedidos = await PedidoProveedor.find({ estado: estado })
+      .populate('proveedor', 'nombre categoria') 
+      .populate('responsable', 'nombre correo'); 
+    res.json(pedidos);
+  } catch (error) {
+    res.status(500).json({
+      mensaje: 'Error al obtener los pedidos del proveedor por ESTADO',
+      error,
+    });
+  }
+};
+
 const actualizarPedidoProveedor = async (req, res) => {
   try {
     const { id } = req.params;
