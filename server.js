@@ -27,6 +27,7 @@ app.use(express.json()); // para recibir JSON
 // Rutas (más adelante las cargamos aquí)
 app.use('/api/productos', productoRoutes);
 app.use('/api/proveedores', proveedorRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 
 // Ruta simple de prueba
 app.get("/", (req, res) => {
