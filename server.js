@@ -10,6 +10,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import productoRoutes from './routes/productoRoutes.js';
+import proveedorRoutes from './routes/proveedorRoutes.js';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import pedidoProveedorRoutes from './routes/pedidoProveedorRoutes.js';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -28,6 +31,7 @@ app.use(express.json()); // para recibir JSON
 app.use('/api/productos', productoRoutes);
 app.use('/api/proveedores', proveedorRoutes);
 app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/pedidoProveedor', pedidoProveedorRoutes);
 
 // Ruta simple de prueba
 app.get("/", (req, res) => {
