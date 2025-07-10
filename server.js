@@ -18,6 +18,9 @@ import ventaRoutes from './routes/ventaRoutes.js';
 import movimientoInventarioRoutes from './routes/movimientoInventarioRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 
+import manejoErrores from './middlewares/manejoErrores.js';
+import notFound from './middlewares/notFound.js';
+
 // Cargar variables de entorno
 dotenv.config();
 
@@ -45,6 +48,9 @@ app.use('/api/auth', authRoutes);
 app.get("/", (req, res) => {
   res.send("API funcionando...");
 });
+
+app.use(notFound);
+app.use(manejoErrores);
 
 // Puerto
 const PORT = process.env.PORT || 5000;
