@@ -13,6 +13,9 @@ import productoRoutes from './routes/productoRoutes.js';
 import proveedorRoutes from './routes/proveedorRoutes.js';
 import usuarioRoutes from './routes/usuarioRoutes.js';
 import pedidoProveedorRoutes from './routes/pedidoProveedorRoutes.js';
+import carritoRoutes from './routes/carritoRoutes.js';
+import ventaRoutes from './routes/ventaRoutes.js';
+import movimientoInventarioRoutes from './routes/movimientoInventarioRoutes.js';
 
 // Cargar variables de entorno
 dotenv.config();
@@ -32,6 +35,9 @@ app.use('/api/productos', productoRoutes);
 app.use('/api/proveedores', proveedorRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/pedidoProveedor', pedidoProveedorRoutes);
+app.use('/api/carritos', carritoRoutes);
+app.use('/api/ventas', ventaRoutes);
+app.use('/api/movimientos', movimientoInventarioRoutes);
 
 // Ruta simple de prueba
 app.get("/", (req, res) => {
